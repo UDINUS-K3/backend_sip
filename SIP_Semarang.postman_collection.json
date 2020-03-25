@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "eb7261aa-83cc-4cfd-887c-29ede3a3c7e5",
+		"name": "SIP Semarang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{}}:{{}}/categories",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{}}:{{}}/categories/{{id}}",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"categories",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"category_name\": \"Kategori 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{}}:{{}}/categories",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"category_name\": \"Kategori 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{}}:{{}}/categories/{{id}}",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"categories",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{}}:{{}}/categories/{{id}}",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"categories",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Information",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{}}:{{}}/informations",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"informations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{}}:{{}}/informations/{{id}}",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"informations",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"information_name\": \"Information's name\",\n\t\"information_description\": \"Information's description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{}}:{{}}/informations",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"informations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"information_name\": \"Information's name\",\n\t\"information_description\": \"Information's description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{}}:{{}}/informations/{{id}}",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"informations",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{}}:{{}}/informations/{{id}}",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"informations",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Category to Information",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"information_id\": \"e46d7350-4950-46cf-bf4c-994ae1d6d93f\",\n\t\"categories\": [\n\t\t{\"id\": \"dbf49478-7308-4eb3-94e7-bf4a01833ea5\"}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{}}:{{}}/informations",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"informations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Category to Information",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"information_id\": \"e46d7350-4950-46cf-bf4c-994ae1d6d93f\",\n\t\"categories\": [\n\t\t{\"id\": \"dbf49478-7308-4eb3-94e7-bf4a01833ea5\"}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{}}:{{}}/informations",
+							"host": [
+								"{{}}"
+							],
+							"port": "{{}}",
+							"path": [
+								"informations"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
