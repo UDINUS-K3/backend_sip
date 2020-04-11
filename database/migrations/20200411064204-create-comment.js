@@ -1,20 +1,24 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('informations', {
+    return queryInterface.createTable('comments', {
       id: {
         allowNull: false,
         autoIncrement: false,
         primaryKey: true,
         type: Sequelize.UUID
       },
-      name: {
+      comment: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      description: {
+      user_id: {
         allowNull: false,
-        type: Sequelize.TEXT('tiny')
+        type: Sequelize.UUID
+      },
+      information_id: {
+        allowNull: false,
+        type: Sequelize.UUID
       },
       created_at: {
         allowNull: false,
@@ -31,6 +35,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('informations');
+    return queryInterface.dropTable('comments');
   }
 };

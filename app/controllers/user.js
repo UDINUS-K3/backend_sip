@@ -1,12 +1,20 @@
 const flaverr = require('flaverr');
 const models = require('../models');
+const encryption = require('../services/encryption');
 const save = async (req, res, next) => {
     try {
-        const category = {
-            name: req.body.name
+        const user = {
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            username: req.body.username,
+            email: req.body.email,
+            password: encryption.encrypt(req.body.password).data,
+            gender: req.body.gender,
+            // image: req.body.image,
+            birthday: req.body.birthday
         }
 
-        const save = await models.Category.create(category);
+        const save = await models.User.create(user);
 
         return res.status(200).json({
             status: 'success',
@@ -22,15 +30,20 @@ const save = async (req, res, next) => {
 
 const update = async (req, res, next) => {
     try {
-        const data = await models.Category.findOne({
+        const data = await models.User.findOne({
             where: {
                 id: req.params.id
             }
         });
 
-        if (!data) throw flaverr('E_NOT_FOUND', Error(`category not found by id ${req.params.id}`));
+        if (!data) throw flaverr('E_NOT_FOUND', Error(`user not found by id ${req.params.id}`));
 
-        if (req.body.name) data.name = req.body.name;
+        if (req.body.firstname) data.firstname = req.body.firstname;
+        if (req.body.lastname) data.lastname = req.body.lastname;
+        if (req.body.username) data.username = req.body.username;
+        if (req.body.email) data.email = req.body.email;
+        if (req.body.gender) data.gender = req.body.gender;
+        if (req.body.birthday) data.birthday = req.body.birthday;
 
         const update = await data.save();
 
@@ -48,13 +61,13 @@ const update = async (req, res, next) => {
 
 const destroy = async (req, res, next) => {
     try {
-        const data = await models.Category.findOne({
+        const data = await models.User.findOne({
             where: {
                 id: req.params.id
             }
         });
 
-        if (!data) throw flaverr('E_NOT_FOUND', Error(`category not found by id ${req.params.id}`));
+        if (!data) throw flaverr('E_NOT_FOUND', Error(`user not found by id ${req.params.id}`));
 
         const destroy = await data.destroy();
 
@@ -72,13 +85,13 @@ const destroy = async (req, res, next) => {
 
 const findById = async (req, res, next) => {
     try {
-        const data = await models.Category.findOne({
+        const data = await models.User.findOne({
             where: {
                 id: req.params.id
             }
         });
 
-        if (!data) throw flaverr('E_NOT_FOUND', Error(`category not found by id ${req.params.id}`));
+        if (!data) throw flaverr('E_NOT_FOUND', Error(`user not found by id ${req.params.id}`));
 
         return res.status(200).json({
             status: 'success',
@@ -94,9 +107,9 @@ const findById = async (req, res, next) => {
 
 const findAll = async (req, res, next) => {
     try {
-        const rows = await models.Category.findAll();
+        const rows = await models.User.findAll();
 
-        if (rows.length === 0) throw flaverr('E_NOT_FOUND', Error(`category not found`));
+        if (rows.length === 0) throw flaverr('E_NOT_FOUND', Error(`users not found`));
 
         return res.status(200).json({
             status: 'success',

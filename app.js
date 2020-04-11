@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const router = require('./routes');
+const passport = require('passport');
 require('dotenv').config();
 
 const app = express();
@@ -12,6 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 
 // models setup
 require('./app/models');
+
+// passport setup
+require('./app/passports/jsonwebtoken')(passport);
 
 // router
 router(app);

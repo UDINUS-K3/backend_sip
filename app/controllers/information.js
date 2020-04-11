@@ -2,10 +2,17 @@ const flaverr = require('flaverr');
 const models = require('../models');
 const save = async (req, res, next) => {
     try {
+        console.log(req.user)
         const information = {
-            name: req.body.information_name,
-            description: req.body.information_description
+            name: req.body.name,
+            description: req.body.description,
+            // image: req.body.image,
+            // location: req.body.location,
+            min_age: req.body.min_age,
+            user_id: req.user.user_data.id,
         }
+
+        console.log(information)
 
         const save = await models.Information.create(information);
 
@@ -26,13 +33,21 @@ const update = async (req, res, next) => {
         const data = await models.Information.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            include: [{
+                model: models.Category,
+                as: 'category_informations'
+            },
+            {
+                model: models.User
+            }]
         });
 
         if (!data) throw flaverr('E_NOT_FOUND', Error(`information not found by id ${req.params.id}`));
 
-        if (req.body.information_name) data.name = req.body.information_name;
-        if (req.body.information_description) data.description = req.body.information_description;
+        if (req.body.name) data.name = req.body.name;
+        if (req.body.description) data.description = req.body.description;
+        if (req.body.min_age) data.min_age = req.body.min_age;
 
         const update = await data.save();
 
@@ -53,7 +68,14 @@ const destroy = async (req, res, next) => {
         const data = await models.Information.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            include: [{
+                model: models.Category,
+                as: 'category_informations'
+            },
+            {
+                model: models.User
+            }]
         });
 
         if (!data) throw flaverr('E_NOT_FOUND', Error(`information not found by id ${req.params.id}`));
@@ -77,7 +99,14 @@ const findById = async (req, res, next) => {
         const data = await models.Information.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            include: [{
+                model: models.Category,
+                as: 'category_informations'
+            },
+            {
+                model: models.User
+            }]
         });
 
         if (!data) throw flaverr('E_NOT_FOUND', Error(`information not found by id ${req.params.id}`));
@@ -97,10 +126,13 @@ const findById = async (req, res, next) => {
 const findAll = async (req, res, next) => {
     try {
         const rows = await models.Information.findAll({
-            include: {
+            include: [{
                 model: models.Category,
                 as: 'category_informations'
-            }
+            },
+            {
+                model: models.User
+            }]
         });
 
         if (rows.length === 0) throw flaverr('E_NOT_FOUND', Error(`information not found`));
@@ -125,6 +157,13 @@ const addCategory = async (req, res, next) => {
                 where: {
                     id: req.body.information_id
                 },
+                include: [{
+                    model: models.Category,
+                    as: 'category_informations'
+                },
+                {
+                    model: models.User
+                }],
                 transaction: t
             });
             console.log('2');
@@ -180,6 +219,13 @@ const removeCategory = async (req, res, next) => {
                 where: {
                     id: req.body.information_id
                 },
+                include: [{
+                    model: models.Category,
+                    as: 'category_informations'
+                },
+                {
+                    model: models.User
+                }],
                 transaction: t
             });
             console.log('2');

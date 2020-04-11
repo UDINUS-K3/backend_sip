@@ -13,7 +13,21 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       allowNull: false,
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT('tiny')
+    },
+    image: {
+      type: DataTypes.STRING
+    },
+    location: {
+      type: DataTypes.STRING
+    },
+    user_id: {
+      allowNull: false,
+      type: DataTypes.UUID
+    },
+    min_age: {
+      type: DataTypes.DOUBLE,
+      defaultValue: "0.0"
     },
     deleted_at: {
       type: DataTypes.DATE,
@@ -31,6 +45,10 @@ module.exports = (sequelize, DataTypes) => {
       through: models.CategoryInformation,
       as: 'category_informations',
       foreignKey: 'information_id'
+    });
+    Information.hasMany(models.Comment);
+    Information.belongsTo(models.User, {
+      foreignKey: 'user_id'
     });
   };
   return Information;

@@ -12,13 +12,19 @@
 					"name": "Get All",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{}}:{{}}/categories",
+							"raw": "{{host}}:{{port}}/categories",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"categories"
 							]
@@ -30,16 +36,22 @@
 					"name": "Get by Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{}}:{{}}/categories/{{id}}",
+							"raw": "{{host}}:{{port}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"categories",
-								"{{id}}"
+								"514a08e1-bf68-413e-b114-60fda3123e4f"
 							]
 						}
 					},
@@ -49,10 +61,21 @@
 					"name": "Create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"category_name\": \"Kategori 1\"\n}",
+							"raw": "{\n\t\"name\": \"Wisata\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -60,11 +83,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{}}:{{}}/categories",
+							"raw": "{{host}}:{{port}}/categories",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"categories"
 							]
@@ -76,10 +99,21 @@
 					"name": "Update",
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"category_name\": \"Kategori 1\"\n}",
+							"raw": "{\n\t\"name\": \"Kategori 1\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -87,14 +121,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{}}:{{}}/categories/{{id}}",
+							"raw": "{{host}}:{{port}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"categories",
-								"{{id}}"
+								"514a08e1-bf68-413e-b114-60fda3123e4f"
 							]
 						}
 					},
@@ -104,16 +138,22 @@
 					"name": "Delete",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{}}:{{}}/categories/{{id}}",
+							"raw": "{{host}}:{{port}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"categories",
-								"{{id}}"
+								"514a08e1-bf68-413e-b114-60fda3123e4f"
 							]
 						}
 					},
@@ -129,13 +169,19 @@
 					"name": "Get All",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{}}:{{}}/informations",
+							"raw": "{{host}}:{{port}}/informations",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"informations"
 							]
@@ -147,16 +193,22 @@
 					"name": "Get by Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{}}:{{}}/informations/{{id}}",
+							"raw": "{{host}}:{{port}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"informations",
-								"{{id}}"
+								"e5efd2b9-73fe-4bd5-b285-317709bcd8ab"
 							]
 						}
 					},
@@ -166,10 +218,21 @@
 					"name": "Create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"information_name\": \"Information's name\",\n\t\"information_description\": \"Information's description\"\n}",
+							"raw": "{\n\t\"name\": \"Tugu Muda\",\n\t\"description\": \"Information's description\",\n\t\"min_age\": \"18\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -177,11 +240,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{}}:{{}}/informations",
+							"raw": "{{host}}:{{port}}/informations",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"informations"
 							]
@@ -193,10 +256,21 @@
 					"name": "Update",
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"information_name\": \"Information's name\",\n\t\"information_description\": \"Information's description\"\n}",
+							"raw": "{\n\t\"name\": \"Tugu Muda\",\n\t\"description\": \"Information's description\",\n\t\"min_age\": \"18\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -204,14 +278,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{}}:{{}}/informations/{{id}}",
+							"raw": "{{host}}:{{port}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"informations",
-								"{{id}}"
+								"e5efd2b9-73fe-4bd5-b285-317709bcd8ab"
 							]
 						}
 					},
@@ -221,16 +295,22 @@
 					"name": "Delete",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{}}:{{}}/informations/{{id}}",
+							"raw": "{{host}}:{{port}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
 								"informations",
-								"{{id}}"
+								"e5efd2b9-73fe-4bd5-b285-317709bcd8ab"
 							]
 						}
 					},
@@ -240,10 +320,21 @@
 					"name": "Add Category to Information",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"information_id\": \"e46d7350-4950-46cf-bf4c-994ae1d6d93f\",\n\t\"categories\": [\n\t\t{\"id\": \"dbf49478-7308-4eb3-94e7-bf4a01833ea5\"}\n\t]\n}",
+							"raw": "{\n\t\"information_id\": \"eb19f0e7-6480-46af-ad86-54eaad31ca25\",\n\t\"categories\": [\n\t\t{\"id\": \"4de2f359-2cca-40e1-858d-0763b79395d2\"}\n\t]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -251,13 +342,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{}}:{{}}/informations",
+							"raw": "{{host}}:{{port}}/informations/add_category",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
-								"informations"
+								"informations",
+								"add_category"
 							]
 						}
 					},
@@ -267,10 +359,21 @@
 					"name": "Remove Category to Information",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"information_id\": \"e46d7350-4950-46cf-bf4c-994ae1d6d93f\",\n\t\"categories\": [\n\t\t{\"id\": \"dbf49478-7308-4eb3-94e7-bf4a01833ea5\"}\n\t]\n}",
+							"raw": "{\n\t\"information_id\": \"e5efd2b9-73fe-4bd5-b285-317709bcd8ab\",\n\t\"categories\": [\n\t\t{\"id\": \"4de2f359-2cca-40e1-858d-0763b79395d2\"}\n\t]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,13 +381,466 @@
 							}
 						},
 						"url": {
-							"raw": "{{}}:{{}}/informations",
+							"raw": "{{host}}:{{port}}/informations/remove_category",
 							"host": [
-								"{{}}"
+								"{{host}}"
 							],
-							"port": "{{}}",
+							"port": "{{port}}",
 							"path": [
-								"informations"
+								"informations",
+								"remove_category"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstname\": \"Budi\",\n\t\"lastname\": \"Handoko\",\n\t\"username\": \"budhan\",\n\t\"email\": \"budihandoko@gmail.com\",\n\t\"password\": \"Mbps123\",\n\t\"gender\": \"Male\",\n\t\"birthday\": \"1998-12-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/auth/signup",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"budhan\",\n\t\"password\": \"Mbps123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/auth/signin",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"new_password\": \"Coba123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/auth/change_password",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"change_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/auth/set_admin",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"set_admin"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/comments",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"comments",
+								"3170969a-48f6-4973-9ec2-a7b5cc6409ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"tes komentar\",\n\t\"information_id\": \"eb19f0e7-6480-46af-ad86-54eaad31ca25\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/comments",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"ganti komentar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"comments",
+								"3170969a-48f6-4973-9ec2-a7b5cc6409ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"comments",
+								"3170969a-48f6-4973-9ec2-a7b5cc6409ae"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"87fa5e0c-77e3-48ae-898c-3edc79487f27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstname\": \"Joko\",\n\t\"lastname\": \"Santoso\",\n\t\"username\": \"jokosan\",\n\t\"email\": \"jokosantoso@gmail.com\",\n\t\"password\": \"Mbps123\",\n\t\"gender\": \"Male\",\n\t\"birthday\": \"1998-12-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstname\": \"Joko\",\n\t\"lastname\": \"Santoso\",\n\t\"username\": \"jokosan\",\n\t\"email\": \"jokosantoso@gmail.com\",\n\t\"password\": \"Mbps123\",\n\t\"gender\": \"Unkown\",\n\t\"birthday\": \"1998-12-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"87fa5e0c-77e3-48ae-898c-3edc79487f27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"87fa5e0c-77e3-48ae-898c-3edc79487f27"
 							]
 						}
 					},
