@@ -20,7 +20,7 @@ module.exports = (app) => {
         if (url && url.length > 0) {
             fetch(url)
                 .then(res => res.body.pipe(response))
-                .catch(err => res.json(err.message))
+                .catch(err => console.log(err))
         }
     })
 
