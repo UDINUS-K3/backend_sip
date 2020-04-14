@@ -10,7 +10,7 @@ const save = async (req, res, next) => {
         const file = req.file
         const { path } = file
         image = await uploader(path)
-        fs.unlinkSync(path)
+        // fs.unlinkSync(path)
 
         const information = {
             name: req.body.name,
