@@ -8,11 +8,10 @@ const save = async (req, res, next) => {
 
         const uploader = async (path) => await cloudinary.uploads(path, 'images');
         const file = req.file
-        console.log(file)
-
+        if (!file) throw flaverr('E_NOT_FOUND', Error(`upload image by multer failed`));
         const { path } = file
         image = await uploader(path)
-        console.log(image)
+        if (!image) throw flaverr('E_NOT_FOUND', Error(`upload image by cloudinary failed`));
 
         fs.unlinkSync(path)
 
