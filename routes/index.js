@@ -6,6 +6,7 @@ const information = require('./information');
 const comment = require('./comment');
 const auth = require('./auth');
 const user = require('./user');
+const fetch = require('node-fetch');
 
 module.exports = (app) => {
     app.get('/', function (req, res, next) {
