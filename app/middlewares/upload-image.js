@@ -25,7 +25,7 @@ const storageDate = multer.diskStorage({
 
 const storageName = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'assets/images');
+        cb(null, '../assets/images');
     },
 
     filename: (req, file, cb) => {

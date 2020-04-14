@@ -6,16 +6,16 @@ const save = async (req, res, next) => {
     try {
         let image;
 
-        // const uploader = async (path) => await cloudinary.uploads(path, 'images');
-        // const file = req.file
-        // const { path } = file
-        // image = await uploader(path)
-        // fs.unlinkSync(path)
+        const uploader = async (path) => await cloudinary.uploads(path, 'images');
+        const file = req.file
+        const { path } = file
+        image = await uploader(path)
+        fs.unlinkSync(path)
 
         const information = {
             name: req.body.name,
             description: req.body.description,
-            // image: image.url,
+            image: image.url,
             // location: req.body.location,
             min_age: req.body.min_age,
             user_id: req.user.user_data.id,
