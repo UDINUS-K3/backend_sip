@@ -20,11 +20,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/categories",
+							"raw": "{{base_url}}/categories",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"categories"
 							]
@@ -44,11 +43,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
+							"raw": "{{base_url}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"categories",
 								"514a08e1-bf68-413e-b114-60fda3123e4f"
@@ -83,11 +81,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/categories",
+							"raw": "{{base_url}}/categories",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"categories"
 							]
@@ -121,11 +118,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
+							"raw": "{{base_url}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"categories",
 								"514a08e1-bf68-413e-b114-60fda3123e4f"
@@ -146,11 +142,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
+							"raw": "{{base_url}}/categories/514a08e1-bf68-413e-b114-60fda3123e4f",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"categories",
 								"514a08e1-bf68-413e-b114-60fda3123e4f"
@@ -177,11 +172,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/informations",
+							"raw": "{{base_url}}/informations",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"informations"
 							]
@@ -201,11 +195,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
+							"raw": "{{base_url}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"informations",
 								"e5efd2b9-73fe-4bd5-b285-317709bcd8ab"
@@ -240,11 +233,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/informations",
+							"raw": "{{base_url}}/informations",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"informations"
 							]
@@ -278,11 +270,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
+							"raw": "{{base_url}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"informations",
 								"e5efd2b9-73fe-4bd5-b285-317709bcd8ab"
@@ -303,11 +294,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
+							"raw": "{{base_url}}/informations/e5efd2b9-73fe-4bd5-b285-317709bcd8ab",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"informations",
 								"e5efd2b9-73fe-4bd5-b285-317709bcd8ab"
@@ -342,11 +332,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/informations/add_category",
+							"raw": "{{base_url}}/informations/add_category",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"informations",
 								"add_category"
@@ -381,11 +370,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/informations/remove_category",
+							"raw": "{{base_url}}/informations/remove_category",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"informations",
 								"remove_category"
@@ -421,11 +409,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/auth/signup",
+							"raw": "{{base_url}}/auth/signup",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"auth",
 								"signup"
@@ -455,11 +442,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/auth/signin",
+							"raw": "{{base_url}}/auth/signin",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"auth",
 								"signin"
@@ -494,11 +480,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/auth/change_password",
+							"raw": "{{base_url}}/auth/change_password",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"auth",
 								"change_password"
@@ -519,11 +504,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/auth/set_admin",
+							"raw": "{{base_url}}/auth/set_admin",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"auth",
 								"set_admin"
@@ -550,11 +534,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/comments",
+							"raw": "{{base_url}}/comments",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"comments"
 							]
@@ -574,11 +557,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
+							"raw": "{{base_url}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"comments",
 								"3170969a-48f6-4973-9ec2-a7b5cc6409ae"
@@ -613,11 +595,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/comments",
+							"raw": "{{base_url}}/comments",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"comments"
 							]
@@ -651,11 +632,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
+							"raw": "{{base_url}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"comments",
 								"3170969a-48f6-4973-9ec2-a7b5cc6409ae"
@@ -676,11 +656,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
+							"raw": "{{base_url}}/comments/3170969a-48f6-4973-9ec2-a7b5cc6409ae",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"comments",
 								"3170969a-48f6-4973-9ec2-a7b5cc6409ae"
@@ -707,11 +686,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/users",
+							"raw": "{{base_url}}/users",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"users"
 							]
@@ -731,11 +709,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
+							"raw": "{{base_url}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"users",
 								"87fa5e0c-77e3-48ae-898c-3edc79487f27"
@@ -770,11 +747,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/users",
+							"raw": "{{base_url}}/users",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"users"
 							]
@@ -808,11 +784,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
+							"raw": "{{base_url}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"users",
 								"87fa5e0c-77e3-48ae-898c-3edc79487f27"
@@ -833,11 +808,10 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}:{{port}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
+							"raw": "{{base_url}}/users/87fa5e0c-77e3-48ae-898c-3edc79487f27",
 							"host": [
-								"{{host}}"
+								"{{base_url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"users",
 								"87fa5e0c-77e3-48ae-898c-3edc79487f27"

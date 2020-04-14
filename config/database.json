@@ -1,5 +1,29 @@
 {
+  "development": {
+    "username": "agastya",
+    "password": "agastya1234",
+    "database": "sip_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "logging": true
+  },
+  "test": {
+    "username": "agastya",
+    "password": "agastya1234",
+    "database": "sip_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "logging": true
+  },
   "production": {
-    "use_env_variable": "DATABASE_URL"
+    "username": "agastya",
+    "password": "agastya1234",
+    "database": "sip_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "logging": true
   }
 }
