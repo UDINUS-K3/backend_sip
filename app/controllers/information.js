@@ -8,11 +8,13 @@ const save = async (req, res, next) => {
 
         const uploader = async (path) => await cloudinary.uploads(path, 'images');
         const file = req.file
+        console.log(file)
+
         const { path } = file
         image = await uploader(path)
-        fs.unlinkSync(path)
-
         console.log(image)
+
+        fs.unlinkSync(path)
 
         const information = {
             name: req.body.name,
