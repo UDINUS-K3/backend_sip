@@ -22,6 +22,8 @@ module.exports = (app) => {
             fetch(url)
                 .then(res => res.body.pipe(response))
                 .catch(err => console.log(err))
+        } else {
+            return res.json({ url: url })
         }
     })
 
