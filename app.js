@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const router = require('./routes');
 const passport = require('passport');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,9 @@ require('./app/models');
 
 // passport setup
 require('./app/passports/jsonwebtoken')(passport);
+
+// cors setup
+app.use(cors());
 
 // router
 router(app);
