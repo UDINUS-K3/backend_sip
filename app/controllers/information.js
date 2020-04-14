@@ -2,11 +2,12 @@ const flaverr = require('flaverr');
 const models = require('../models');
 const save = async (req, res, next) => {
     try {
-        console.log(req.user)
+        let image = `${process.env.BASE_URL}/${req.file.destination}/${req.file.filename}`;
+
         const information = {
             name: req.body.name,
             description: req.body.description,
-            // image: req.body.image,
+            image: image,
             // location: req.body.location,
             min_age: req.body.min_age,
             user_id: req.user.user_data.id,

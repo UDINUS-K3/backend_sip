@@ -14,6 +14,16 @@ module.exports = (app) => {
         });
     });
 
+    // get image
+    app.get("/assets/images/:url", (req, res) => {
+        const url = req.params.url
+        if (url && url.length > 0) {
+            fetch(url)
+                .then(res => res.body.pipe(res))
+                .catch(err => console.log(err))
+        }
+    })
+
     // app routes
     app.use('/auth', auth);
     app.use('/users', decryptToken, passport.authenticate('jwt', { session: false }), scope, user);
