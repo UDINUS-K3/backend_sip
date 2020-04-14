@@ -60,7 +60,6 @@ const upload = (req, res, next) => {
             });
         }
         // Everything went fine.
-        console.log(req.file);
         next();
     })
 }

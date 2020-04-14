@@ -1,13 +1,21 @@
 const flaverr = require('flaverr');
 const models = require('../models');
+const cloudinary = require('../services/cloudinary');
+const fs = require('file-system');
 const save = async (req, res, next) => {
     try {
-        let image = `${process.env.BASE_URL}/${req.file.destination}/${req.file.filename}`;
+        let image;
+
+        const uploader = async (path) => await cloudinary.uploads(path, 'images');
+        const file = req.file
+        const { path } = file
+        image = await uploader(path)
+        fs.unlinkSync(path)
 
         const information = {
             name: req.body.name,
             description: req.body.description,
-            image: image,
+            image: image.url,
             // location: req.body.location,
             min_age: req.body.min_age,
             user_id: req.user.user_data.id,
