@@ -15,11 +15,11 @@ module.exports = (app) => {
     });
 
     // get image
-    app.get("/assets/images/:url", (req, res) => {
-        const url = req.params.url
+    app.get("/proxy", (req, response) => {
+        const url = req.query.url
         if (url && url.length > 0) {
             fetch(url)
-                .then(res => res.body.pipe(res))
+                .then(res => res.body.pipe(response))
                 .catch(err => console.log(err))
         }
     })
