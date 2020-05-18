@@ -4,26 +4,25 @@ const cloudinary = require("../services/cloudinary");
 const fs = require("file-system");
 const save = async (req, res, next) => {
   try {
-    let image;
+    let image_url;
 
     if (req.file) {
       const uploader = async (path) => await cloudinary.uploads(path, "images");
       const file = req.file;
       const { path } = file;
-      image = await uploader(path).url;
+      let image = await uploader(path);
+      image_url = image.url;
       fs.unlinkSync(path);
     }
 
     const information = {
       name: req.body.name,
       description: req.body.description,
-      image: image,
+      image: image_url,
       // location: req.body.location,
       min_age: req.body.min_age,
       user_id: req.user.user_data.id,
     };
-
-    console.log(information);
 
     const save = await models.Information.create(information);
 
