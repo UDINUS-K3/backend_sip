@@ -51,6 +51,9 @@ module.exports = (sequelize, DataTypes) => {
       image: {
         type: DataTypes.STRING,
       },
+      activation_code: {
+        type: DataTypes.STRING,
+      },
       birthday: {
         defaultValue: "1990-01-01",
         type: DataTypes.DATE,
