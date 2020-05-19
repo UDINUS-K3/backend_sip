@@ -32,7 +32,7 @@ const signup = async (req, res, next) => {
       user_data: save,
     };
 
-    let token = jwt.sign(data, process.env.JWT_SECRET, { expiresIn: "1d" });
+    let token = jwt.sign(data, process.env.JWT_SECRET, { expiresIn: "2d" });
     token = encryption.encrypt(token).data;
 
     return res.status(200).json({
