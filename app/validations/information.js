@@ -55,7 +55,7 @@ const addCategory = () => {
       .exists()
       .isUUID(4)
       .withMessage("Please provide a valid information id"),
-    body("categories.*")
+    body("categories.*.id")
       .exists()
       .isUUID(4)
       .withMessage("Please provide a valid category id"),
@@ -68,7 +68,7 @@ const removeCategory = () => {
       .exists()
       .isUUID(4)
       .withMessage("Please provide a valid information id"),
-    body("categories*")
+    body("categories.*.id")
       .exists()
       .isUUID(4)
       .withMessage("Please provide a valid category id"),
