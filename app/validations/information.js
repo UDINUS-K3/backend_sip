@@ -68,7 +68,7 @@ const removeCategory = () => {
       .exists()
       .isUUID(4)
       .withMessage("Please provide a valid information id"),
-    body("categories.*")
+    body("categories*")
       .exists()
       .isUUID(4)
       .withMessage("Please provide a valid category id"),
