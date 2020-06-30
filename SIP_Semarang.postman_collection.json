@@ -281,9 +281,7 @@
 								}
 							],
 							"options": {
-								"raw": {
-									"language": "json"
-								}
+								"formdata": {}
 							}
 						},
 						"url": {
@@ -565,6 +563,39 @@
 							"path": [
 								"auth",
 								"set_admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"activation_code\": \"fKME87wv\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/activation",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"activation"
 							]
 						}
 					},
