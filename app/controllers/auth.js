@@ -23,7 +23,7 @@ const signup = async (req, res, next) => {
     await sendEmail({
       to: req.body.email,
       subject: "email verification",
-      text: activation_code,
+      text: "Your Activation Code: " + activation_code,
     });
 
     const save = await models.User.create(user);
