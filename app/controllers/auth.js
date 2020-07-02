@@ -19,14 +19,19 @@ const signup = async (req, res, next) => {
       activation_code: activation_code,
       birthday: req.body.birthday,
     };
+    
+    const save = await models.User.findOrCreate({
+      where: { username: user.username, is_active: false },
+      defaults: { user }
+    })
 
-    await sendEmail({
-      to: req.body.email,
-      subject: "email verification",
-      text: "Your Activation Code: " + activation_code,
-    });
-
-    const save = await models.User.create(user);
+    if (save) {
+      await sendEmail({
+        to: req.body.email,
+        subject: "email verification",
+        text: "Your Activation Code: " + activation_code,
+      });
+    }
 
     const data = {
       user_data: save,
@@ -145,7 +150,7 @@ const setAdmin = async (req, res, next) => {
 
     return res.status(200).json({
       status: "success",
-      access_token: "congratulation, you are admin now",
+      message: "congratulation, you are admin now",
       user: user
     });
   } catch (err) {
