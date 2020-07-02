@@ -22,7 +22,7 @@ const signup = async (req, res, next) => {
     
     const save = await models.User.findOrCreate({
       where: { username: user.username, is_active: false },
-      defaults: { user }
+      defaults: user
     })
 
     if (save) {
