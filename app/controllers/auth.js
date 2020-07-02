@@ -34,7 +34,7 @@ const signup = async (req, res, next) => {
     }
 
     const data = {
-      user_data: save,
+      user_data: save[0],
     };
 
     let token = jwt.sign(data, process.env.JWT_SECRET, { expiresIn: "2d" });
@@ -163,36 +163,37 @@ const setAdmin = async (req, res, next) => {
 
 const activation = async (req, res, next) => {
   try {
-    const user = await models.User.findOne({
-      where: {
-        id: req.user.user_data.id,
-      },
-    });
+    console.log(req.user)
+    // const user = await models.User.findOne({
+    //   where: {
+    //     id: req.user.user_data.id,
+    //   },
+    // });
 
-    const activation_code = req.body.activation_code;
+    // const activation_code = req.body.activation_code;
 
-    if (!user)
-      throw flaverr(
-        "E_NOT_FOUND",
-        Error(
-          `user with username ${req.user.user_data.username} is does not exits`
-        )
-      );
+    // if (!user)
+    //   throw flaverr(
+    //     "E_NOT_FOUND",
+    //     Error(
+    //       `user with username ${req.user.user_data.username} is does not exits`
+    //     )
+    //   );
 
-    if (activation_code !== req.user.user_data.activation_code) {
-      throw flaverr(
-        "E_NOT_FOUND",
-        Error(`activation failed, please check the activation code`)
-      );
-    }
+    // if (activation_code !== req.user.user_data.activation_code) {
+    //   throw flaverr(
+    //     "E_NOT_FOUND",
+    //     Error(`activation failed, please check the activation code`)
+    //   );
+    // }
 
-    user.is_active = true;
-    await user.save();
+    // user.is_active = true;
+    // await user.save();
 
     return res.status(200).json({
       status: "success",
       message: "your account has ben activated",
-      user: user
+      // user: user
     });
   } catch (err) {
     return res.status(500).json({
