@@ -2,6 +2,7 @@ const flaverr = require("flaverr");
 const models = require("../models");
 const encryption = require("../services/encryption");
 const jwt = require("jsonwebtoken");
+const { use } = require("passport");
 const sendEmail = require("../services/send-email").sendEmail;
 const generate = require("../services/generate-code").generate;
 const signup = async (req, res, next) => {
@@ -19,11 +20,26 @@ const signup = async (req, res, next) => {
       activation_code: activation_code,
       birthday: req.body.birthday,
     };
-    
+
     const save = await models.User.findOrCreate({
-      where: { username: user.username, is_active: false },
-      defaults: user
+      where: {
+        username: user.username,
+        email: user.email,
+        is_active: false
+      },
+      defaults: {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        username: req.body.username,
+        email: req.body.email,
+        password: encryption.encrypt(req.body.password).data,
+        gender: req.body.gender,
+        activation_code: activation_code,
+        birthday: req.body.birthday,
+      }
     })
+
+    console.log(save)
 
     if (save) {
       await sendEmail({
@@ -32,6 +48,8 @@ const signup = async (req, res, next) => {
         text: "Your Activation Code: " + activation_code,
       });
     }
+
+    console.log(activation_code)
 
     const data = {
       user_data: save[0],
@@ -43,7 +61,7 @@ const signup = async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       token: token,
-      user: user
+      user: save
     });
   } catch (err) {
     return res.status(500).json({
@@ -163,32 +181,33 @@ const setAdmin = async (req, res, next) => {
 
 const activation = async (req, res, next) => {
   try {
-    console.log(req.user)
-    // const user = await models.User.findOne({
-    //   where: {
-    //     id: req.user.user_data.id,
-    //   },
-    // });
+    const user = await models.User.findOne({
+      where: {
+        id: req.user.user_data.id
+      },
+    });
 
-    // const activation_code = req.body.activation_code;
+    const activation_code = req.body.activation_code;
 
-    // if (!user)
-    //   throw flaverr(
-    //     "E_NOT_FOUND",
-    //     Error(
-    //       `user with username ${req.user.user_data.username} is does not exits`
-    //     )
-    //   );
+    if (!user)
+      throw flaverr(
+        "E_NOT_FOUND",
+        Error(
+          `user with username ${req.user.user_data.username} is does not exits`
+        )
+      );
 
-    // if (activation_code !== req.user.user_data.activation_code) {
-    //   throw flaverr(
-    //     "E_NOT_FOUND",
-    //     Error(`activation failed, please check the activation code`)
-    //   );
-    // }
+    console.log(user.activation_code)
 
-    // user.is_active = true;
-    // await user.save();
+    if (activation_code !== user.activation_code) {
+      throw flaverr(
+        "E_NOT_FOUND",
+        Error(`activation failed, please check the activation code`)
+      );
+    }
+
+    user.is_active = true;
+    await user.save();
 
     return res.status(200).json({
       status: "success",
