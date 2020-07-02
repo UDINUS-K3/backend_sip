@@ -5,7 +5,6 @@ module.exports.sendEmail = (data) => {
   return new Promise((resolve, reject) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
-      secure: true,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_PASSWORD,

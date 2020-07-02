@@ -38,6 +38,7 @@ const signup = async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       token: token,
+      user: user
     });
   } catch (err) {
     return res.status(500).json({
@@ -74,6 +75,7 @@ const signin = async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       access_token: token,
+      user: user
     });
   } catch (err) {
     return res.status(500).json({
@@ -111,6 +113,7 @@ const changePassword = async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       access_token: "password changed",
+      user: user
     });
   } catch (err) {
     return res.status(500).json({
@@ -143,6 +146,7 @@ const setAdmin = async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       access_token: "congratulation, you are admin now",
+      user: user
     });
   } catch (err) {
     return res.status(500).json({
@@ -183,6 +187,7 @@ const activation = async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       message: "your account has ben activated",
+      user: user
     });
   } catch (err) {
     return res.status(500).json({
