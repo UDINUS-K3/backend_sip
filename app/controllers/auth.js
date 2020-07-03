@@ -39,8 +39,6 @@ const signup = async (req, res, next) => {
       }
     })
 
-    console.log(save)
-
     if (save) {
       await sendEmail({
         to: req.body.email,
@@ -48,8 +46,6 @@ const signup = async (req, res, next) => {
         text: "Your Activation Code: " + activation_code,
       });
     }
-
-    console.log(activation_code)
 
     const data = {
       user_data: save[0],
@@ -60,8 +56,8 @@ const signup = async (req, res, next) => {
 
     return res.status(200).json({
       status: "success",
-      token: token,
-      user: save
+      access_token: token,
+      user: save[0]
     });
   } catch (err) {
     return res.status(500).json({
@@ -181,6 +177,8 @@ const setAdmin = async (req, res, next) => {
 
 const activation = async (req, res, next) => {
   try {
+    console.log(req.user.user_data.activation_code)
+
     const user = await models.User.findOne({
       where: {
         id: req.user.user_data.id
@@ -197,9 +195,7 @@ const activation = async (req, res, next) => {
         )
       );
 
-    console.log(user.activation_code)
-
-    if (activation_code !== user.activation_code) {
+    if (activation_code !== req.user.user_data.activation_code) {
       throw flaverr(
         "E_NOT_FOUND",
         Error(`activation failed, please check the activation code`)
@@ -211,10 +207,10 @@ const activation = async (req, res, next) => {
 
     return res.status(200).json({
       status: "success",
-      message: "your account has ben activated",
-      // user: user
+      message: "your account has ben activated"
     });
   } catch (err) {
+    console.log(err.message)
     return res.status(500).json({
       status: "failed",
       message: err.message,
