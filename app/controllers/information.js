@@ -40,6 +40,18 @@ const save = async (req, res, next) => {
 
 const update = async (req, res, next) => {
   try {
+
+    let image_url;
+
+    if (req.file) {
+      const uploader = async (path) => await cloudinary.uploads(path, "images");
+      const file = req.file;
+      const { path } = file;
+      let image = await uploader(path);
+      image_url = image.url;
+      fs.unlinkSync(path);
+    }
+
     const data = await models.Information.findOne({
       where: {
         id: req.params.id,
@@ -61,9 +73,17 @@ const update = async (req, res, next) => {
         Error(`information not found by id ${req.params.id}`)
       );
 
+      if (req.user.user_data.id !== data.user_id) {
+        throw flaverr(
+          "E_NOT_FOUND",
+          Error(`you're not allowed`)
+        );
+      }
+
     if (req.body.name) data.name = req.body.name;
     if (req.body.description) data.description = req.body.description;
     if (req.body.min_age) data.min_age = req.body.min_age;
+    if (image_url) data.image = image_url
 
     const update = await data.save();
 
@@ -101,6 +121,13 @@ const destroy = async (req, res, next) => {
         "E_NOT_FOUND",
         Error(`information not found by id ${req.params.id}`)
       );
+
+    if (req.user.user_data.id !== data.user_id) {
+      throw flaverr(
+        "E_NOT_FOUND",
+        Error(`you're not allowed`)
+      );
+    }
 
     const destroy = await data.destroy();
 

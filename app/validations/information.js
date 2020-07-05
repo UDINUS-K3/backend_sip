@@ -5,7 +5,6 @@ const save = () => {
     body("name").exists().not().isEmpty().isString().escape(),
     body("description").optional().not().isEmpty().escape(),
     body("min_age").exists().isNumeric(),
-    body("payment_image").optional(),
   ];
 };
 
