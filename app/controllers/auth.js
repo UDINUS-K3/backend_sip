@@ -14,10 +14,6 @@ const signup = async (req, res, next) => {
     if (req.file) {
       const uploader = async (path) => await cloudinary.uploads(path, "images");
       const file = req.file;
-      
-      console.log("\n\n========================================")
-    console.log(req.file)
-    console.log("=========================================\n\n")
 
       const { path } = file;
       let image = await uploader(path);
