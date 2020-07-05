@@ -4,7 +4,6 @@ const encryption = require("../services/encryption");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../services/cloudinary");
 const fs = require("file-system");
-const { use } = require("passport");
 const sendEmail = require("../services/send-email").sendEmail;
 const generate = require("../services/generate-code").generate;
 const signup = async (req, res, next) => {
