@@ -25,10 +25,6 @@ const signup = async (req, res, next) => {
       fs.unlinkSync(path);
     }
 
-    console.log("\n\n========================================")
-    console.log(image_url)
-    console.log("=========================================\n\n")
-
     const activation_code = generate(8);
 
     const user = {
