@@ -32,8 +32,6 @@ const signup = async (req, res, next) => {
       activation_code: activation_code,
       birthday: req.body.birthday,
     };
-    
-    console.log(user)
 
     const exist = await models.User.restore({
       where: {
