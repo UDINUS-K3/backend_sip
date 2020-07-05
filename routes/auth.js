@@ -5,8 +5,9 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../app/controllers/auth");
 const activation = require("../app/middlewares/activation");
+const { upload } = require("../app/middlewares/upload-image");
 
-router.post("/signup", auth.signup);
+router.post("/signup", upload, auth.signup);
 router.post("/signin", auth.signin);
 router.put(
   "/change_password",

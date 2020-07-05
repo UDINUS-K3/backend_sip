@@ -7,6 +7,17 @@ const sendEmail = require("../services/send-email").sendEmail;
 const generate = require("../services/generate-code").generate;
 const signup = async (req, res, next) => {
   try {
+    let image_url;
+
+    if (req.file) {
+      const uploader = async (path) => await cloudinary.uploads(path, "images");
+      const file = req.file;
+      const { path } = file;
+      let image = await uploader(path);
+      image_url = image.url;
+      fs.unlinkSync(path);
+    }
+
     const activation_code = generate(8);
 
     const user = {
@@ -16,7 +27,7 @@ const signup = async (req, res, next) => {
       email: req.body.email,
       password: encryption.encrypt(req.body.password).data,
       gender: req.body.gender,
-      // image: req.body.image,
+      image: image_url,
       activation_code: activation_code,
       birthday: req.body.birthday,
     };
