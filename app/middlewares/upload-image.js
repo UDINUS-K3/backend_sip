@@ -6,9 +6,9 @@ const storageDate = multer.diskStorage({
   },
 
   filename: (req, file, cb) => {
-    console.log("\n\n\n")
+    console.log("\n\n\n==============")
     console.log(file)
-    console.log("\n\n\n")
+    console.log("==================\n\n\n")
 
     var filetype = "";
     if (file.mimetype === "image/gif") {
