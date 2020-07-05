@@ -39,14 +39,14 @@ const signup = async (req, res, next) => {
       }
     })
 
-    let userData
+    let userData = null
 
     if (exist) {
       let currUser = await models.User.findOne({
         where: {email: req.body.email}
       })        
 
-      currUser.firstname = user.firstname
+        currUser.firstname = user.firstname
         currUser.lastname = user.lastname
         currUser.username = user.username
         currUser.email = user.email
@@ -59,7 +59,7 @@ const signup = async (req, res, next) => {
 
         userData = await currUser.save()
     } else {
-      userData = await models.User.create(user);
+        userData = await models.User.create(user);
     }
 
     if (userData) {
