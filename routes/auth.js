@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../app/controllers/auth");
 const activation = require("../app/middlewares/activation");
-const { upload } = require("../app/middlewares/upload-image");
+const upload = require("../app/middlewares/upload-image").upload;
 
 router.post("/signup", upload, auth.signup);
 router.post("/signin", auth.signin);

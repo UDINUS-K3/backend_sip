@@ -2,6 +2,8 @@ const flaverr = require("flaverr");
 const models = require("../models");
 const encryption = require("../services/encryption");
 const jwt = require("jsonwebtoken");
+const cloudinary = require("../services/cloudinary");
+const fs = require("file-system");
 const { use } = require("passport");
 const sendEmail = require("../services/send-email").sendEmail;
 const generate = require("../services/generate-code").generate;
@@ -32,25 +34,36 @@ const signup = async (req, res, next) => {
       birthday: req.body.birthday,
     };
 
-    const save = await models.User.findOrCreate({
+    const exist = await models.User.restore({
       where: {
-        username: user.username,
-        email: user.email,
-        is_active: false
-      },
-      defaults: {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.username,
-        email: req.body.email,
-        password: encryption.encrypt(req.body.password).data,
-        gender: req.body.gender,
-        activation_code: activation_code,
-        birthday: req.body.birthday,
+          email: req.body.email
       }
     })
 
-    if (save) {
+    let userData
+
+    if (exist) {
+      let currUser = await models.User.findOne({
+        where: {email: req.body.email}
+      })        
+
+      currUser.firstname = user.firstname
+        currUser.lastname = user.lastname
+        currUser.username = user.username
+        currUser.email = user.email
+        currUser.password = user.password
+        currUser.image = image_url
+        currUser.gender = user.gender
+        currUser.activation_code = activation_code
+        currUser.is_active = false
+        currUser.birthday = user.birthday
+
+        userData = await currUser.save()
+    } else {
+      userData = await models.User.create(user);
+    }
+
+    if (userData) {
       await sendEmail({
         to: req.body.email,
         subject: "email verification",
@@ -59,7 +72,7 @@ const signup = async (req, res, next) => {
     }
 
     const data = {
-      user_data: save[0],
+      user_data: userData,
     };
 
     let token = jwt.sign(data, process.env.JWT_SECRET, { expiresIn: "2d" });
@@ -68,7 +81,7 @@ const signup = async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       access_token: token,
-      user: save[0]
+      user: userData
     });
   } catch (err) {
     return res.status(500).json({
