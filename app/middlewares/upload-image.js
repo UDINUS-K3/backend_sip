@@ -23,7 +23,7 @@ const storageDate = multer.diskStorage({
     } 
     
     else {
-      console.log("image type is " + file.mimetype)
+      console.log("image type is " + file)
       cb(new Error("only image file is allowed"));
     }
   },
