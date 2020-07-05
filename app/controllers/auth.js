@@ -21,6 +21,8 @@ const signup = async (req, res, next) => {
 
     const activation_code = generate(8);
 
+    console.log(image_url)
+
     const user = {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
