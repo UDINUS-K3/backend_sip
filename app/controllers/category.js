@@ -121,6 +121,12 @@ const findAll = async (req, res, next) => {
       offset: (req.query.page - 1) * req.query.per_page,
       limit: req.query.per_page,
       where: where,
+      include: [
+        {
+          model: models.Information,
+          as: "category_informations",
+        },
+      ],
     });
 
     if (count === 0) throw flaverr("E_NOT_FOUND", Error(`category not found`));
